@@ -82,7 +82,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let pool = sqlx::postgres::PgPool::connect(conn_string.as_str()).await?;
 
-    // sqlx::migrate!("./migrations").run(&pool).await?;
+    sqlx::migrate!("./migrations").run(&pool).await?;
 
     let mut book = Book {
         title: "Salem's Lot".to_string(),
